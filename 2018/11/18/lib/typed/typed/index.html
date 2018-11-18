@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="// The MIT License (MIT)  // Typed.js | Copyright (c) 2016 Matt Boldt | www.mattboldt.com  // Permission is hereby granted, free of charge, to any person obtaining a copy // of this software and assoc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/lib/typed/typed/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="// The MIT License (MIT)  // Typed.js | Copyright (c) 2016 Matt Boldt | www.mattboldt.com  // Permission is hereby granted, free of charge, to any person obtaining a copy // of this software and assoc">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-10T11:57:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="// The MIT License (MIT)  // Typed.js | Copyright (c) 2016 Matt Boldt | www.mattboldt.com  // Permission is hereby granted, free of charge, to any person obtaining a copy // of this software and assoc">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-lib/typed/typed" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/18/lib/typed/typed/" class="article-date">
+  <time datetime="2018-11-18T08:45:47.391Z" itemprop="datePublished">2018-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        // The MIT License (MIT)
+
+// Typed.js | Copyright (c) 2016 Matt Boldt | www.mattboldt.com
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+
+
+
+! function($) {
+
+	"use strict";
+
+	var Typed = function(el, options) {
+
+		// chosen element to manipulate text
+		this.el = $(el);
+
+		// options
+		this.options = $.extend({}, $.fn.typed.defaults, options);
+
+		// attribute to type into
+		this.isInput = this.el.is('input');
+		this.attr = this.options.attr;
+
+		// show cursor
+		this.showCursor = this.isInput ? false : this.options.showCursor;
+
+		// text content of element
+		this.elContent = this.attr ? this.el.attr(this.attr) : this.el.text();
+
+		// html or plain text
+		this.contentType = this.options.contentType;
+
+		// typing speed
+		this.typeSpeed = this.options.typeSpeed;
+
+		// add a delay before typing starts
+		this.startDelay = this.options.startDelay;
+
+		// backspacing speed
+		this.backSpeed = this.options.backSpeed;
+
+		// amount of time to wait before backspacing
+		this.backDelay = this.options.backDelay;
+
+		// div containing strings
+		this.stringsElement = this.options.stringsElement;
+
+		// input strings of text
+		this.strings = this.options.strings;
+
+		// character number position of current string
+		this.strPos = 0;
+
+		// current array position
+		this.arrayPos = 0;
+
+		// number to stop backspacing on.
+		// default 0, can change depending on how many chars
+		// you want to remove at the time
+		this.stopNum = 0;
+
+		// Looping logic
+		this.loop = this.options.loop;
+		this.loopCount = this.options.loopCount;
+		this.curLoop = 0;
+
+		// for stopping
+		this.stop = false;
+
+		// custom cursor
+		this.cursorChar = this.options.cursorChar;
+
+		// shuffle the strings
+		this.shuffle = this.options.shuffle;
+		// the order of strings
+		this.sequence = [];
+
+		// All systems go!
+		this.build();
+	};
+
+	Typed.prototype = {
+
+		constructor: Typed,
+
+		init: function() {
+			// begin the loop w/ first current string (global self.strings)
+			// current string will be passed as an argument each time after this
+			var self = this;
+			self.timeout = setTimeout(function() {
+				for (var i=0;i<self.strings.length;++i) self.sequence[i]="i;" shuffle="" the="" array="" if="" true="" if(self.shuffle)="" self.sequence="self.shuffleArray(self.sequence);" start="" typing="" self.typewrite(self.strings[self.sequence[self.arraypos]],="" self.strpos);="" },="" self.startdelay);="" build:="" function()="" {="" var="" self="this;" insert="" cursor="" (this.showcursor="==" true)="" this.cursor="$(" <span"="" class="\" typed-cursor\""="">" + this.cursorChar + "");
+				this.el.after(this.cursor);
+			}
+			if (this.stringsElement) {
+				this.strings = [];
+				this.stringsElement.hide();
+				console.log(this.stringsElement.children());
+				var strings = this.stringsElement.children();
+				$.each(strings, function(key, value){
+					self.strings.push($(value).html());
+				});
+			}
+			this.init();
+		},
+
+		// pass current string state to each function, types 1 char per call
+		typewrite: function(curString, curStrPos) {
+			// exit when stopped
+			if (this.stop === true) {
+				return;
+			}
+
+			// varying values for setTimeout during typing
+			// can't be global since number changes each time loop is executed
+			var humanize = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;
+			var self = this;
+
+			// ------------- optional ------------- //
+			// backpaces a certain string faster
+			// ------------------------------------ //
+			// if (self.arrayPos == 1){
+			//  self.backDelay = 50;
+			// }
+			// else{ self.backDelay = 500; }
+
+			// contain typing function in a timeout humanize'd delay
+			self.timeout = setTimeout(function() {
+				// check for an escape character before a pause value
+				// format: \^\d+ .. eg: ^1000 .. should be able to print the ^ too using ^^
+				// single ^ are removed from string
+				var charPause = 0;
+				var substr = curString.substr(curStrPos);
+				if (substr.charAt(0) === '^') {
+					var skip = 1; // skip atleast 1
+					if (/^\^\d+/.test(substr)) {
+						substr = /\d+/.exec(substr)[0];
+						skip += substr.length;
+						charPause = parseInt(substr);
+					}
+
+					// strip out the escape character and pause value so they're not printed
+					curString = curString.substring(0, curStrPos) + curString.substring(curStrPos + skip);
+				}
+
+				if (self.contentType === 'html') {
+					// skip over html tags while typing
+					var curChar = curString.substr(curStrPos).charAt(0)
+					if (curChar === '<' 1="" ||="" curchar="==" '&')="" {="" var="" tag="" ;="" endtag="" if="" (curchar="==" '<')="" }="" else="" while="" (curstring.substr(curstrpos="" +="" 1).charat(0)="" !="=" endtag)="" curstrpos++;="" (curstrpos=""> curString.length) { break; }
+						}
+						curStrPos++;
+						tag += endTag;
+					}
+				}
+
+				// timeout for any pause after a character
+				self.timeout = setTimeout(function() {
+					if (curStrPos === curString.length) {
+						// fires callback function
+						self.options.onStringTyped(self.arrayPos);
+
+						// is this the final string
+						if (self.arrayPos === self.strings.length - 1) {
+							// animation that occurs on the last typed string
+							self.options.callback();
+
+							self.curLoop++;
+
+							// quit if we wont loop back
+							if (self.loop === false || self.curLoop === self.loopCount)
+								return;
+						}
+
+						self.timeout = setTimeout(function() {
+							self.backspace(curString, curStrPos);
+						}, self.backDelay);
+
+					} else {
+
+						/* call before functions if applicable */
+						if (curStrPos === 0) {
+							self.options.preStringTyped(self.arrayPos);
+						}
+
+						// start typing each new char into existing string
+						// curString: arg, self.el.html: original text inside element
+						var nextString = curString.substr(0, curStrPos + 1);
+						if (self.attr) {
+							self.el.attr(self.attr, nextString);
+						} else {
+							if (self.isInput) {
+								self.el.val(nextString);
+							} else if (self.contentType === 'html') {
+								self.el.html(nextString);
+							} else {
+								self.el.text(nextString);
+							}
+						}
+
+						// add characters one by one
+						curStrPos++;
+						// loop the function
+						self.typewrite(curString, curStrPos);
+					}
+					// end of character pause
+				}, charPause);
+
+				// humanized value for typing
+			}, humanize);
+
+		},
+
+		backspace: function(curString, curStrPos) {
+			// exit when stopped
+			if (this.stop === true) {
+				return;
+			}
+
+			// varying values for setTimeout during typing
+			// can't be global since number changes each time loop is executed
+			var humanize = Math.round(Math.random() * (100 - 30)) + this.backSpeed;
+			var self = this;
+
+			self.timeout = setTimeout(function() {
+
+				// ----- this part is optional ----- //
+				// check string array position
+				// on the first string, only delete one word
+				// the stopNum actually represents the amount of chars to
+				// keep in the current string. In my case it's 14.
+				// if (self.arrayPos == 1){
+				//  self.stopNum = 14;
+				// }
+				//every other time, delete the whole typed string
+				// else{
+				//  self.stopNum = 0;
+				// }
+
+				if (self.contentType === 'html') {
+					// skip over html tags while backspacing
+					if (curString.substr(curStrPos).charAt(0) === '>') {
+						var tag = '';
+						while (curString.substr(curStrPos - 1).charAt(0) !== '<') {="" tag="" -="curString.substr(curStrPos).charAt(0);" curstrpos--;="" if="" (curstrpos="" <="" 0)="" break;="" }="" +="<" ;="" -----="" continue="" important="" stuff="" replace="" text="" with="" base="" typed="" characters="" var="" nextstring="curString.substr(0," curstrpos);="" (self.attr)="" self.el.attr(self.attr,="" nextstring);="" else="" (self.isinput)="" self.el.val(nextstring);="" (self.contenttype="==" 'html')="" self.el.html(nextstring);="" self.el.text(nextstring);="" the="" number="" (id="" of="" character="" in="" current="" string)="" is="" less="" than="" stop="" number,="" keep="" going=""> self.stopNum) {
+					// subtract characters one by one
+					curStrPos--;
+					// loop the function
+					self.backspace(curString, curStrPos);
+				}
+				// if the stop number has been reached, increase
+				// array position to next string
+				else if (curStrPos </')></'></self.strings.length;++i)>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/18/lib/typed/typed/" data-id="cjommzoq5000aqwm362gww678" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/18/blog-grid/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/18/lib/owlcarousel/assets/owl.theme.green.min/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/18/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/blog-single/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/blog-grid/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/lib/typed/typed/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/lib/owlcarousel/assets/owl.theme.green.min/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

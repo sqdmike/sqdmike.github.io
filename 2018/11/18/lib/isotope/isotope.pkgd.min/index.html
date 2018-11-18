@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="/*!  * Isotope PACKAGED v3.0.5  *  * Licensed GPLv3 for open source use  * or Isotope Commercial License for commercial use  *  * https://isotope.metafizzy.co  * Copyright 2017 Metafizzy  */  !functio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/lib/isotope/isotope.pkgd.min/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="/*!  * Isotope PACKAGED v3.0.5  *  * Licensed GPLv3 for open source use  * or Isotope Commercial License for commercial use  *  * https://isotope.metafizzy.co  * Copyright 2017 Metafizzy  */  !functio">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-10T11:57:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="/*!  * Isotope PACKAGED v3.0.5  *  * Licensed GPLv3 for open source use  * or Isotope Commercial License for commercial use  *  * https://isotope.metafizzy.co  * Copyright 2017 Metafizzy  */  !functio">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-lib/isotope/isotope.pkgd.min" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/18/lib/isotope/isotope.pkgd.min/" class="article-date">
+  <time datetime="2018-11-18T08:45:46.952Z" itemprop="datePublished">2018-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        /*!
+ * Isotope PACKAGED v3.0.5
+ *
+ * Licensed GPLv3 for open source use
+ * or Isotope Commercial License for commercial use
+ *
+ * https://isotope.metafizzy.co
+ * Copyright 2017 Metafizzy
+ */
+
+!function(t,e){"function"==typeof define&&define.amd?define("jquery-bridget/jquery-bridget",["jquery"],function(i){return e(t,i)}):"object"==typeof module&&module.exports?module.exports=e(t,require("jquery")):t.jQueryBridget=e(t,t.jQuery)}(window,function(t,e){"use strict";function i(i,s,a){function u(t,e,o){var n,s="$()."+i+'("'+e+'")';return t.each(function(t,u){var h=a.data(u,i);if(!h)return void r(i+" not initialized. Cannot call methods, i.e. "+s);var d=h[e];if(!d||"_"==e.charAt(0))return void r(s+" is not a valid method");var l=d.apply(h,o);n=void 0===n?l:n}),void 0!==n?n:t}function h(t,e){t.each(function(t,o){var n=a.data(o,i);n?(n.option(e),n._init()):(n=new s(o,e),a.data(o,i,n))})}a=a||e||t.jQuery,a&&(s.prototype.option||(s.prototype.option=function(t){a.isPlainObject(t)&&(this.options=a.extend(!0,this.options,t))}),a.fn[i]=function(t){if("string"==typeof t){var e=n.call(arguments,1);return u(this,t,e)}return h(this,t),this},o(a))}function o(t){!t||t&&t.bridget||(t.bridget=i)}var n=Array.prototype.slice,s=t.console,r="undefined"==typeof s?function(){}:function(t){s.error(t)};return o(e||t.jQuery),i}),function(t,e){"function"==typeof define&&define.amd?define("ev-emitter/ev-emitter",e):"object"==typeof module&&module.exports?module.exports=e():t.EvEmitter=e()}("undefined"!=typeof window?window:this,function(){function t(){}var e=t.prototype;return e.on=function(t,e){if(t&&e){var i=this._events=this._events||{},o=i[t]=i[t]||[];return o.indexOf(e)==-1&&o.push(e),this}},e.once=function(t,e){if(t&&e){this.on(t,e);var i=this._onceEvents=this._onceEvents||{},o=i[t]=i[t]||{};return o[e]=!0,this}},e.off=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var o=i.indexOf(e);return o!=-1&&i.splice(o,1),this}},e.emitEvent=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){i=i.slice(0),e=e||[];for(var o=this._onceEvents&&this._onceEvents[t],n=0;n<i.length;n++){var 0="==t?void(this.stagger=0):(this.stagger=a(t),this.stagger)},c._positionItem=function(t,e,i,o,n){o?t.goTo(e,i):(t.stagger(n*this.stagger),t.moveTo(e,i))},c._postLayout=function(){this.resizeContainer()},c.resizeContainer=function(){var" s="i[n],r=o&&o[s];r&&(this.off(t,s),delete" o[s]),s.apply(this,e)}return="" this}},e.alloff="function(){delete" this._events,delete="" this._onceevents},t}),function(t,e){"use="" strict";"function"="=typeof" define&&define.amd?define("get-size="" get-size",[],function(){return="" e()}):"object"="=typeof" module&&module.exports?module.exports="e():t.getSize=e()}(window,function(){" use"="" strict";function="" t(t){var="" e="parseFloat(t),i=t.indexOf(" %")="=-1&&!isNaN(e);return" "="" i&&e}function="" e(){}function="" i(){for(var="" t="{width:0,height:0,innerWidth:0,innerHeight:0,outerWidth:0,outerHeight:0},e=0;e<h;e++){var" i="u[e];t[i]=0}return" t}function="" o(t){var="" e||a("style="" returned="" "+e+".="" are="" you="" running="" this="" code="" in="" a="" hidden iframe="" on="" firefox?="" see="" http:="" bit.ly="" getsizebug1"),e}function="" n(){if(!d){d="!0;var" 2px="" 3px="" 4px",e.style.borderstyle="solid" ,e.style.borderwidth="1px 2px 3px 4px" ,e.style.boxsizing="border-box" ;var="" n="o(e);s.isBoxSizeOuter=r=200==t(n.width),i.removeChild(e)}}function" s(e){if(n(),"string"="=typeof" e&&(e="document.querySelector(e)),e&&" object"="=typeof" e&&e.nodetype){var="" i();var="" d="a.isBorderBox=" border-box"="=s.boxSizing,l=0;l<h;l++){var" f="u[l],c=s[f],m=parseFloat(c);a[f]=isNaN(m)?0:m}var" p="a.paddingLeft+a.paddingRight,y=a.paddingTop+a.paddingBottom,g=a.marginLeft+a.marginRight,v=a.marginTop+a.marginBottom,_=a.borderLeftWidth+a.borderRightWidth,I=a.borderTopWidth+a.borderBottomWidth,z=d&&r,x=t(s.width);x!==!1&&(a.width=x+(z?0:p+_));var" s!="=!1&&(a.height=S+(z?0:y+I)),a.innerWidth=a.width-(p+_),a.innerHeight=a.height-(y+I),a.outerWidth=a.width+g,a.outerHeight=a.height+v,a}}var" r,a="undefined" =="typeof" console?e:function(t){console.error(t)},u="[" paddingleft","paddingright","paddingtop","paddingbottom","marginleft","marginright","margintop","marginbottom","borderleftwidth","borderrightwidth","bordertopwidth","borderbottomwidth"],h="u.length,d=!1;return" s}),function(t,e){"use="" define&&define.amd?define("desandro-matches-selector="" matches-selector",e):"object"="=typeof" strict";var="" o="e[i],n=o+" matchesselector";if(t[n])return"="" n}}();return="" function(e,i){return="" e[t](i)}}),function(t,e){"function"="=typeof" define&&define.amd?define("fizzy-ui-utils="" utils",["desandro-matches-selector="" matches-selector"],function(i){return="" e(t,i)}):"object"="=typeof" e)t[i]="e[i];return" t},i.modulo="function(t,e){return(t%e+e)%e},i.makeArray=function(t){var" if(t&&"object"="=typeof" t&&"number"="=typeof" t.length)for(var="" e.push(t);return="" e},i.removefrom="function(t,e){var" t},i.getqueryelement="function(t){return" string"="=typeof" t?document.queryselector(t):t},i.handleevent="function(t){var" +t.type;this[e]&&this[e](t)},i.filterfindelements="function(t,o){t=i.makeArray(t);var" t.foreach(function(t){if(t="" instanceof="" htmlelement){if(!o)return="" void="" n.push(t);e(t,o)&&n.push(t);for(var="" s[n]},i||100)}},i.docready="function(t){var" t.replace(="" (.)([a-z])="" g,function(t,e,i){return="" e+"-"+i}).tolowercase()};var="" i.htmlinit="function(e,n){i.docReady(function(){var" i,s="t.getAttribute(r)||t.getAttribute(d);try{i=s&&JSON.parse(s)}catch(a){return" void(o&&o.error("error="" parsing="" "+r+"="" "+t.classname+":="" "+a))}var="" u="new" e(t,i);l&&l.data(t,n,u)})})},i}),function(t,e){"function"="=typeof" define&&define.amd?define("outlayer="" item",["ev-emitter="" ev-emitter","get-size="" get-size"],e):"object"="=typeof" i(t){for(var="" t)return!1;return="" o(t,e){t&&(this.element="t,this.layout=e,this.position={x:0,y:0},this._create())}function" n(t){return="" ([a-z])="" g,function(t){return"-"+t.tolowercase()})}var="" s.transition?"transition":"webkittransition",a="string" s.transform?"transform":"webkittransform",u="{WebkitTransition:" webkittransitionend",transition:"transitionend"}[r],h="{transform:a,transition:r,transitionDuration:r+" duration",transitionproperty:r+"property",transitiondelay:r+"delay"},d="o.prototype=Object.create(t.prototype);d.constructor=o,d._create=function(){this._transn={ingProperties:{},clean:{},onEnd:{}},this.css({position:"absolute"})},d.handleEvent=function(t){var""" +t.type;this[e]&&this[e](t)},d.getsize="function(){this.size=e(this.element)},d.css=function(t){var" t){var="" this.layout.options.percentposition&&!e?t="" this.layout.size.width*100+"%":t+"px"},d.getyvalue="function(t){var" this.layout.options.percentposition&&e?t="" this.layout.size.height*100+"%":t+"px"},d._transitionto="function(t,e){this.getPosition();var" this.layoutposition();var="" "+e+"px,="" 0)"},d.goto="function(t,e){this.setPosition(t,e),this.layoutPosition()},d.moveTo=d._transitionTo,d.setPosition=function(t,e){this.position.x=parseInt(t,10),this.position.y=parseInt(e,10)},d._nonTransition=function(t){this.css(t.to),t.isCleaning&&this._removeStyles(t.to);for(var" t.ontransitionend)t.ontransitionend[e].call(this)},d.transition="function(t){if(!parseFloat(this.layout.options.transitionDuration))return" this._nontransition(t);var="" t.ontransitionend)e.onend[i]="t.onTransitionEnd[i];for(i" t.to)e.ingproperties[i]="!0,t.isCleaning&&(e.clean[i]=!0);if(t.from){this.css(t.from);var" l="opacity," +n(a);d.enabletransition="function(){if(!this.isTransitioning){var" t?t+"ms":t,this.css({transitionproperty:l,transitionduration:t,transitiondelay:this.staggerdelay||0}),this.element.addeventlistener(u,this,!1)}},d.onwebkittransitionend="function(t){this.ontransitionend(t)},d.onotransitionend=function(t){this.ontransitionend(t)};var" e.ingproperties[o],i(e.ingproperties)&&this.disabletransition(),o="" e.clean&&(this.element.style[t.propertyname]="" ,delete="" e.clean[o]),o="" e.onend){var="" e.onend[o]}this.emitevent("transitionend",[this])}},d.disabletransition="function(){this.removeTransitionStyles(),this.element.removeEventListener(u,this,!1),this.isTransitioning=!1},d._removeStyles=function(t){var" t)e[i]="" ;this.css(e)};var="" c="{transitionProperty:" ",transitionduration:"",transitiondelay:""};return"="" d.removetransitionstyles="function(){this.css(c)},d.stagger=function(t){t=isNaN(t)?0:t,this.staggerDelay=t+" ms"},d.removeelem="function(){this.element.parentNode.removeChild(this.element),this.css({display:" "}),this.emitevent("remove",[this])},d.remove="function(){return""" r&&parsefloat(this.layout.options.transitionduration)?(this.once("transitionend",function(){this.removeelem()}),void="" this.hide()):void="" this.removeelem()},d.reveal="function(){delete" this.ishidden,this.css({display:""});var="" e)return="" i},d.hide="function(){this.isHidden=!0,this.css({display:" "});var"="" outlayer",["ev-emitter="" get-size","fizzy-ui-utils="" utils",".="" item"],function(i,o,n,s){return="" e(t,i,o,n,s)}):"object"="=typeof" s(t,e){var="" void(u&&u.error("bad="" element="" for="" "+this.constructor.namespace+":="" "+(i||t)));this.element="i,h&&(this.$element=h(this.element)),this.options=o.extend({},this.constructor.defaults),this.option(e);var" r(t){function="" e(){t.apply(this,arguments)}return="" e.prototype="Object.create(t.prototype),e.prototype.constructor=e,e}function" a(t){if("number"="=typeof" t)return="" t;var="" 0;i="parseFloat(i);var" i*n}var="" e&&void="" 0!="=this.options[e]?this.options[e]:this.options[t]},s.compatOptions={initLayout:" isinitlayout",horizontal:"ishorizontal",layoutinstant:"islayoutinstant",originleft:"isoriginleft",origintop:"isorigintop",resize:"isresizebound",resizecontainer:"isresizingcontainer"},c._create="function(){this.reloadItems(),this.stamps=[],this.stamp(this.options.stamp),o.extend(this.element.style,this.options.containerStyle);var" i(s,this);o.push(r)}return="" o},c._filterfinditemelements="function(t){return" o.filterfindelements(t,this.options.itemselector)},c.getitemelements="function(){return" this.items.map(function(t){return="" t.element})},c.layout="function(){this._resetLayout(),this._manageStamps();var" o,n="this.options[t];n?(" n?o="this.element.querySelector(n):n" htmlelement&&(o="n),this[t]=o?i(o)[e]:n):this[t]=0},c.layoutItems=function(t,e){t=this._getItemsForLayout(t),this._layoutItems(t,e),this._postLayout()},c._getItemsForLayout=function(t){return" t.filter(function(t){return!t.isignored})},c._layoutitems="function(t,e){if(this._emitCompleteOnItems(" layout",t),t&&t.length){var"="" null="==t||void" i(){n.dispatchevent(t+"complete",null,[e])}function="" o(){r++,r="=s&&i()}var" r="0;e.forEach(function(e){e.once(t,o)})},c.dispatchEvent=function(t,e,i){var" this.$element.trigger(t,i)},c.ignore="function(t){var" e.isignored},c.stamp="function(t){t=this._find(t),t&&(this.stamps=this.stamps.concat(t),t.forEach(this.ignore,this))},c.unstamp=function(t){t=this._find(t),t&&t.forEach(function(t){o.removeFrom(this.stamps,t),this.unignore(t)},this)},c._find=function(t){if(t)return" t&&(t="this.element.querySelectorAll(t)),t=o.makeArray(t)},c._manageStamps=function(){this.stamps&&this.stamps.length&&(this._getBoundingRect(),this.stamps.forEach(this._manageStamp,this))},c._getBoundingRect=function(){var" s},c.handleevent="o.handleEvent,c.bindResize=function(){t.addEventListener(" resize",this),this.isresizebound="!0},c.unbindResize=function(){t.removeEventListener(" e&&t.innerwidth!="=this.size.innerWidth},c.addItems=function(t){var" e.length&&(this.items="this.items.concat(e)),e},c.appended=function(t){var" i}},c.getitems="function(t){t=o.makeArray(t);var" t.foreach(function(t){var="" f[e],delete="" this.element.outlayerguid,h&&h.removedata(this.element,this.constructor.namespace)},s.data="function(t){t=o.getQueryElement(t);var" e&&f[e]},s.create="function(t,e){var" i.defaults="o.extend({},s.defaults),o.extend(i.defaults,e),i.compatOptions=o.extend({},s.compatOptions),i.namespace=t,i.data=s.data,i.Item=r(n),o.htmlInit(i,t),h&&h.bridget&&h.bridget(t,i),i};var" m="{ms:1,s:1e3};return" s.item="n,s}),function(t,e){" function"="=typeof" define&&define.amd?define("isotope-layout="" js="" item",["outlayer="" outlayer"],e):"object"="=typeof" e(){t.item.apply(this,arguments)}var="" i.destroy="function(){n.apply(this,arguments),this.css({display:" "})},e}),function(t,e){"function"="=typeof" layout-mode",["get-size="" get-size","outlayer="" i(t){this.isotope="t,t&&(this.options=t.options[this.namespace],this.element=t.element,this.items=t.filteredItems,this.size=t.size)}var" n.foreach(function(t){o[t]="function(){return" e.prototype[t].apply(this.isotope,arguments)}}),o.needsverticalresizelayout="function(){var" i&&e.innerheight!="this.isotope.size.innerHeight},o._getMeasurement=function(){this.isotope._getMeasurement.apply(this,arguments)},o.getColumnWidth=function(){this.getSegmentSize(" column","width")},o.getrowheight="function(){this.getSegmentSize(" row","height")},o.getsegmentsize="function(t,e){var""" e&&e.element&&t(e.element)},o.layout="function(){this.isotope.layout.apply(this.isotope,arguments)},o.getSize=function(){this.isotope.getSize(),this.size=this.isotope.size},i.modes={},i.create=function(t,e){function" n(){i.apply(this,arguments)}return="" n.prototype="Object.create(o),n.prototype.constructor=n,e&&(n.options=e),n.prototype.namespace=t,i.modes[t]=n,n},i}),function(t,e){" define&&define.amd?define("masonry-layout="" masonry",["outlayer="" outlayer","get-size="" o._resetlayout="function(){this.getSize(),this._getMeasurement(" columnwidth","outerwidth"),this._getmeasurement("gutter","outerwidth"),this.measurecolumns(),this.colys="[];for(var" r},o._gettopcolposition="function(t){var" this.colys;for(var="" e},o._getcolgroupy="function(t,e){if(e<2)return" this.colys[t];var="" math.max.apply(math,i)},o._gethorizontalcolposition="function(t,e){var">1&&i+t>this.cols;i=o?0:i;var n=e.size.outerWidth&&e.size.outerHeight;return this.horizontalColIndex=n?i+t:this.horizontalColIndex,{col:i,y:this._getColGroupY(i,t)}},o._manageStamp=function(t){var i=e(t),o=this._getElementOffset(t),n=this._getOption("originLeft"),s=n?o.left:o.right,r=s+i.outerWidth,a=Math.floor(s/this.columnWidth);a=Math.max(0,a);var u=Math.floor(r/this.columnWidth);u-=r%this.columnWidth?0:1,u=Math.min(this.cols-1,u);for(var h=this._getOption("originTop"),d=(h?o.top:o.bottom)+i.outerHeight,l=a;l<=u;l++)this.colys[l]=math.max(d,this.colys[l])},o._getcontainersize=function(){this.maxy=math.max.apply(math,this.colys);var t="{height:this.maxY};return" this._getoption("fitwidth")&&(t.width="this._getContainerFitWidth()),t},o._getContainerFitWidth=function(){for(var" this.getcontainerwidth(),t!="this.containerWidth},i}),function(t,e){" function"="=typeof" "="" define&&define.amd?define("isotope-layout="" js="" layout-modes="" masonry",["..="" layout-mode","masonry-layout="" masonry"],e):"object"="=typeof" module&&module.exports?module.exports="e(require(" ..="" layout-mode"),require("masonry-layout")):e(t.isotope.layoutmode,t.masonry)}(window,function(t,e){"use"="" strict";var="" i="t.create(" masonry"),o="i.prototype,n={_getElementOffset:!0,layout:!0,_getMeasurement:!0};for(var" s="" in="" e.prototype)n[s]||(o[s]="e.prototype[s]);var" r="o.measureColumns;o.measureColumns=function(){this.items=this.isotope.filteredItems,r.call(this)};var" a="o._getOption;return" o._getoption="function(t){return" fitwidth"="=t?void" 0!="=this.options.isFitWidth?this.options.isFitWidth:this.options.fitWidth:a.apply(this.isotope,arguments)},i}),function(t,e){" fit-rows",["..="" layout-mode"],e):"object"="=typeof" exports?module.exports="e(require(" layout-mode")):e(t.isotope.layoutmode)}(window,function(t){"use"="" e="t.create(" fitrows"),i="e.prototype;return" i._resetlayout="function(){this.x=0,this.y=0,this.maxY=0,this._getMeasurement(" gutter","outerwidth")},i._getitemlayoutposition="function(t){t.getSize();var">i&&(this.x=0,this.y=this.maxY);var o={x:this.x,y:this.y};return this.maxY=Math.max(this.maxY,this.y+t.size.outerHeight),this.x+=e,o},i._getContainerSize=function(){return{height:this.maxY}},e}),function(t,e){"function"==typeof define&&define.amd?define("isotope-layout/js/layout-modes/vertical",["../layout-mode"],e):"object"==typeof module&&module.exports?module.exports=e(require("../layout-mode")):e(t.Isotope.LayoutMode)}(window,function(t){"use strict";var e=t.create("vertical",{horizontalAlignment:0}),i=e.prototype;return i._resetLayout=function(){this.y=0},i._getItemLayoutPosition=function(t){t.getSize();var e=(this.isotope.size.innerWidth-t.size.outerWidth)*this.options.horizontalAlignment,i=this.y;return this.y+=t.size.outerHeight,{x:e,y:i}},i._getContainerSize=function(){return{height:this.y}},e}),function(t,e){"function"==typeof define&&define.amd?define(["outlayer/outlayer","get-size/get-size","desandro-matches-selector/matches-selector","fizzy-ui-utils/utils","isotope-layout/js/item","isotope-layout/js/layout-mode","isotope-layout/js/layout-modes/masonry","isotope-layout/js/layout-modes/fit-rows","isotope-layout/js/layout-modes/vertical"],function(i,o,n,s,r,a){return e(t,i,o,n,s,r,a)}):"object"==typeof module&&module.exports?module.exports=e(t,require("outlayer"),require("get-size"),require("desandro-matches-selector"),require("fizzy-ui-utils"),require("isotope-layout/js/item"),require("isotope-layout/js/layout-mode"),require("isotope-layout/js/layout-modes/masonry"),require("isotope-layout/js/layout-modes/fit-rows"),require("isotope-layout/js/layout-modes/vertical")):t.Isotope=e(t,t.Outlayer,t.getSize,t.matchesSelector,t.fizzyUIUtils,t.Isotope.Item,t.Isotope.LayoutMode)}(window,function(t,e,i,o,n,s,r){function a(t,e){return function(i,o){for(var n=0;n<t.length;n++){var s="t[n],r=i.sortData[s],a=o.sortData[s];if(r">a||r<a){var u="void" 0!="=e[s]?e[s]:e,h=u?1:-1;return(r">a?1:-1)*h}}return 0}}var u=t.jQuery,h=String.prototype.trim?function(t){return t.trim()}:function(t){return t.replace(/^\s+|\s+$/g,"")},d=e.create("isotope",{layoutMode:"masonry",isJQueryFiltering:!0,sortAscending:!0});d.Item=s,d.LayoutMode=r;var l=d.prototype;l._create=function(){this.itemGUID=0,this._sorters={},this._getSorters(),e.prototype._create.call(this),this.modes={},this.filteredItems=this.items,this.sortHistory=["original-order"];for(var t in r.modes)this._initLayoutMode(t)},l.reloadItems=function(){this.itemGUID=0,e.prototype.reloadItems.call(this)},l._itemize=function(){for(var t=e.prototype._itemize.apply(this,arguments),i=0;i</a){var></t.length;n++){var></=u;l++)this.colys[l]=math.max(d,this.colys[l])},o._getcontainersize=function(){this.maxy=math.max.apply(math,this.colys);var></i.length;n++){var>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/18/lib/isotope/isotope.pkgd.min/" data-id="cjommzor1000iqwm3jxb2jlwq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/18/lib/jquery/jquery-migrate.min/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/18/lib/isotope/isotope.pkgd/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/18/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/blog-single/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/blog-grid/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/lib/typed/typed/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/lib/owlcarousel/assets/owl.theme.green.min/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

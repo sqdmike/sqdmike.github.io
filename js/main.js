@@ -79,7 +79,7 @@ $(document).ready(function() {
 
   $(function() {
     typed.typed({
-      strings: ["mike."],
+      strings: ["mike.Do not laugh for the past, but laugh.",'不为往事忧 余生只愿笑'],
       typeSpeed: 100,
       loop: true,
     });

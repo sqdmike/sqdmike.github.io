@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mike音乐</title>
+    <link rel="stylesheet" href="./css/mike.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="header">
+        <img
+          src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3315563739,2810597331&fm=27&gp=0.jpg"
+          alt=""
+        />
+        <input
+          class="search"
+          type="text"
+          placeholder="请输入您想要搜索的/ 专辑 / 歌手 / 歌单 / 用户"
+          v-model="search"
+          @keyup.enter="searchMusic"
+        />
+        
+      </header>
+      <div class="mian">
+            <div class="left">
+                <img :src="coverUrl" class="playAni" :class="{pause:isPause}"alt="">
+                <audio :src="musicUrl" controls autoplay
+                @play="musicPlay"
+                @pause="musicPause"
+                ></audio>
+                <h1>评论专区</h1>
+                <ul class="comments">
+                    <li v-for="(item,index) in commentList" :key='item.commentId'>
+                         <img :src="item.user.avatarUrl" alt="">
+                         <span>{{item.user.nickname}}</span>
+                         <p>{{item.content}}</p>  
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                    <transition-group tag="ul" name="list">
+                            <li v-for="item in musicList" :key="item.id" @dblclick="playMusic(item.id)">
+                                {{ item.name }}-- <span>{{ item.artists[0].name }}</span>
+                            </li>
+                    </transition-group>
+            </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--
+  为Vue实例化出来的对象上 增加一个 $http的属性 让我们用这个属性的方法 来获取网络数据
+  Vue-resource 算是Vue的插件
+-->
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script>
+    let app = new Vue({
+        el:'#app',
+        data:{
+            //定义搜索内容
+            search:'',
+            //定义歌曲列表
+            musicList:[],
+            //定义歌曲播放路径
+            musicUrl:'',
+            //定义背景
+            coverUrl: './01.gif',
+            //音乐是否在播放
+            isPause: true,
+            //定义评论的列表
+            commentList:[]
+
+
+        },
+        methods:{
+            //音乐播放的方法
+            musicPlay(){
+                this.isPause = false;
+            },
+            //音乐暂停的方法
+            musicPause(){
+                this.isPause = true;
+            },
+            searchMusic(){
+                //调用接口获取数据
+                this.$http.get(`https://autumnfish.cn/search?keywords=${this.search}`).then(res=>{
+                    //console.log(res);
+                    this.musicList = res.body.result.songs;
+                    
+                })
+            }
+            ,//播放音乐的方法
+            playMusic(musicId){
+                //调接口
+                this.$http.get(`https://autumnfish.cn/song/url?id=${musicId}`).then(res=>{
+                    //console.log(res);
+                    this.musicUrl = res.body.data[0].url;
+                    
+                })
+                this.$http.get(`https://autumnfish.cn/song/detail?ids=${musicId}`).then(res=>{
+                    //console.log(res);
+                    this.coverUrl = res.body.songs[0].al.picUrl;
+                    
+                })
+                //调用评论的接口
+                this.$http.get(`https://autumnfish.cn/comment/music?id=${musicId}&limit=10`).then(res=>{
+                    //console.log(res);
+                    this.commentList = res.body.comments
+                    
+                })
+            }
+
+        }
+    })
+</script>
